@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Cửa Hàng</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      background-color: #ff6347;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+    }
+    .container {
+      padding: 20px;
+    }
+    .menu {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+    .menu-item {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .menu-item img {
+      max-width: 100%;
+      border-radius: 5px;
+    }
+    .qrcode {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .qrcode canvas {
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Menu Cửa Hàng</h1>
+  </header>
+  <div class="container">
+    <h2>Danh Sách Món Ăn</h2>
+    <div class="menu">
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/150" alt="Món ăn 1">
+        <h3>Phở Bò</h3>
+        <p>Giá: 50,000 VND</p>
+      </div>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/150" alt="Món ăn 2">
+        <h3>Bún Chả</h3>
+        <p>Giá: 45,000 VND</p>
+      </div>
+      <div class="menu-item">
+        <img src="https://via.placeholder.com/150" alt="Món ăn 3">
+        <h3>Bánh Mì</h3>
+        <p>Giá: 25,000 VND</p>
+      </div>
+    </div>
+    <div class="qrcode">
+      <h2>Quét Mã Để Đặt Món</h2>
+      <div id="qrcode"></div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script>
+    // Tạo mã QR
+    QRCode.toCanvas(document.getElementById('qrcode'), 'https://linkdatmoncuaban.com', function (error) {
+      if (error) console.error(error);
+      console.log('QR Code generated!');
+    });
+  </script>
+</body>
+</html>
